@@ -48,6 +48,9 @@ public class Wsdl2ByteCodes {
 	private static void doCompile(File sourceDir) throws WsdlImportException {
 		System.out.println("Compiling stubs");
 		JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+		if (compiler == null) {
+			throw new WsdlImportException("Cannot compile source due to invalid (null) compiler! Are you using JRE instead of JDK?");
+		}
 		DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<JavaFileObject>();
 		StandardJavaFileManager fileManager = compiler.getStandardFileManager(diagnostics, null, null);
 		Collection<File> files = FileUtils.listFiles(sourceDir, new String[] { "java" }, true);
