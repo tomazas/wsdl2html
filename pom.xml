@@ -49,44 +49,8 @@
 		</repository>
 	</distributionManagement>
 
-
-
 	<build>
 		<plugins>
-
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.1.0</version>
-				<executions>
-					<execution>
-						<id>attach-javadocs</id>
-						<goals>
-							<goal>jar</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<source>${jdk.version}</source>
-					<doclint>none</doclint>
-				</configuration>
-			</plugin>
-
-
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -150,12 +114,78 @@
 			<artifactId>jaxws-ri</artifactId>
 			<version>2.3.0</version>
 			<type>pom</type>
+			<exclusions>
+				<exclusion>
+					<groupId>org.eclipse.persistence</groupId>
+					<artifactId>eclipselink</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.glassfish.gmbal</groupId>
+					<artifactId>gmbal-api-only</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.glassfish.ha</groupId>
+					<artifactId>ha-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>commonj.sdo</groupId>
+					<artifactId>commonj.sdo</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.xml.fastinfoset</groupId>
+					<artifactId>FastInfoset</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.annotation</groupId>
+					<artifactId>javax.annotation-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.xml.soap</groupId>
+					<artifactId>javax.xml.soap-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.xml.ws</groupId>
+					<artifactId>jaxws-eclipselink-plugin</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.jws</groupId>
+					<artifactId>jsr181-api</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.xml.ws</groupId>
+					<artifactId>release-documentation</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.xml.ws</groupId>
+					<artifactId>samples</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.xml.ws</groupId>
+					<artifactId>sdo-eclipselink-plugin</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>com.sun.org.apache.xml.internal</groupId>
+					<artifactId>resolver</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.jvnet.mimepull</groupId>
+					<artifactId>mimepull</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>javax.xml.bind</groupId>
+					<artifactId>jaxb-api</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
-
 		<dependency>
-			<groupId>javax.activation</groupId>
-			<artifactId>javax.activation-api</artifactId>
-			<version>1.2.0</version>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.3.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-core</artifactId>
+			<version>2.3.0</version>
 		</dependency>
 
 	</dependencies>
